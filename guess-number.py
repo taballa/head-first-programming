@@ -1,11 +1,15 @@
+from random import randint
 print('hello')
 guess = 0
-while guess != 5:
+secret = randint(1, 10)
+while guess != secret:
     _x = input('Guess the number: ')
     guess = int(_x)
-    if guess > 5:
-        print('Too high')
+    if guess == secret:
+        print('You win!')
     else:
-        print('Too low')
-print('You win')
+        if guess > secret:
+            print('Too high')
+        else:
+            print('Too low')
 print('good bye')
