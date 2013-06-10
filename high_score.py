@@ -1,5 +1,4 @@
 result_f = open("results.txt")
-result_surfing = open('surfing_data.csv')
 
 high_score = 0
 scores = []
