@@ -9,3 +9,14 @@ def find_details(id2find):
     surfers_f.close()
     return({})
 
+lookup_id = int(input("Enter ther id of the surfer: "))
+surfer = find_details(lookup_id)
+if surfer:
+    print("ID:       " + surfer['id'])
+    print("Name:     " + surfer['name'])
+    print("Country:  " + surfer['country'])
+    print("Average:  " + surfer['average'])
+    print("Board:    " + surfer['board'])
+    print("Age:      " + surfer['age'])
+else:
+    print("Have not found!")
