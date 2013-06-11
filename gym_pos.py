@@ -1,7 +1,7 @@
 from transactions import save_transaction
 
-items = ["DONUT", "LATTE", "FILTER", "MUFFIN"]
-price = [1.50, 2.0, 1.80, 1.20]
+items = ["WORKOUT", "WEIGHTS", "BIKES"]
+price = [35.0, 10.0, 8.0]
 running = True
 
 while running:
