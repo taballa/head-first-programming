@@ -1,7 +1,7 @@
-from transactions import save_transaction
+from transactions import *
 
 items = ["WORKOUT", "WEIGHTS", "BIKES"]
-price = [35.0, 10.0, 8.0]
+prices = [35.0, 10.0, 8.0]
 running = True
 
 while running:
@@ -15,4 +15,4 @@ while running:
         running = False
     else:
         credit_card = input("Credit card number: ")
-        save_transaction(price[choice - 1], credit_card, items[choice - 1])
+        save_transaction(prices[choice - 1], credit_card, items[choice - 1])
