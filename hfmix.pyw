@@ -19,11 +19,20 @@ def shutdown():
     if askokcancel(title="Are you sure?", message= "Do you really want to quit?"):
         app.destroy()
 
+def track_toggle():
+    if track_playing.get() == 1:
+        track.play(loops = -1)
+    elif track_playing.get() == 0:
+        track.stop()
+
 app = Tk()
 app.title("Head First Mix")
 
 stop_botton = Button(app, command = track_stop, text = "Stop")
 stop_botton.pack(side = RIGHT)
+
+track_playing = IntVar()
+Checkbutton(app, variable = track_playing, command = track_toggle, text = sound_file).pack()
 
 start_button = Button(app, command = track_start, text = "Start")
 start_button.pack(side = LEFT)
