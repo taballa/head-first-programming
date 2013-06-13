@@ -1,4 +1,4 @@
-from Tkinter import Tk,  Entry, Text, Label, Button, Radiobutton, StringVar
+from Tkinter import Tk,  Entry, Text, Label, Button, Radiobutton, StringVar, OptionMenu
 
 def save_data():
     file_deliveries = open("deliveries.txt", "a")
@@ -13,6 +13,13 @@ def save_data():
     description.delete(0, 'end')
     address.delete('1.0', 'end')
 
+def read_depots(file):
+    depots = []
+    depots_f = open(file)
+    for line in depots_f:
+        depots.append(line.rstrip())
+    return depots
+
 app = Tk()
 app.title('Head-Ex Deliveries')
 
@@ -23,6 +30,10 @@ Label(app, text = "Depot:").pack()
 Radiobutton(app, text = 'Cambridge, MA', value = "Cambridge, MA", variable = depot).pack()
 Radiobutton(app, text = 'Cambridge, UK', value = "Cambridge, UK", variable = depot).pack()
 Radiobutton(app, text = "Seattle, WA", value = "Seattle, WA", variable = depot).pack()
+
+# options = ["Cambridge", "MA Cambridge", "UK Seattle", "WA New York", "NY Dallas", "TX Boston", "MA Rome", "Italy Male", "Maldives Luxor", "Egypt Rhodes", "Greece Edinburgh", "Scotland"]
+options = read_depots("depots.txt")
+OptionMenu(app, depot, *options).pack()
 
 Label(app, text = "Description:").pack()
 description = Entry(app)
