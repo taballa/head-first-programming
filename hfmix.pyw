@@ -10,9 +10,11 @@ track = mixer.Sound(sound_file)
 
 def track_stop():
     track.stop()
+    track_playing.set(0)
 
 def track_start():
     track.play(loops = -1)
+    track_playing.set(1)
 
 def shutdown():
     track.stop()
@@ -25,8 +27,25 @@ def track_toggle():
     elif track_playing.get() == 0:
         track.stop()
 
+def change_volume(v):
+    track.set_volume(volume.get())
+
 app = Tk()
 app.title("Head First Mix")
+
+volume = DoubleVar()
+volume.set(track.get_volume())
+volume_scale = Scale(
+    app,
+    variable = volume,
+    from_ = 0.0,
+    to = 1.0,
+    resolution = 0.1,
+    command = change_volume,
+    label = "Volume",
+    orient = HORIZONTAL)
+
+volume_scale.pack()
 
 stop_botton = Button(app, command = track_stop, text = "Stop")
 stop_botton.pack(side = RIGHT)
