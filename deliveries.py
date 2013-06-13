@@ -1,5 +1,5 @@
 from Tkinter import Tk,  Entry, Text, Label, Button, Radiobutton, StringVar, OptionMenu
-import Tkinter.messagebox
+import tkMessageBox
 
 def save_data():
     try:
@@ -15,7 +15,7 @@ def save_data():
         description.delete(0, 'end')
         address.delete('1.0', 'end')
     except Exception, e:
-        app.title("Can't write to the file %s" % e)
+        tkMessageBox.askretrycancel ("Error!", "Can't write to the file \n %s" % e)
 
 def read_depots(file):
     depots = []
